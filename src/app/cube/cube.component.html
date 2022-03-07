@@ -1,0 +1,5 @@
+<div class="cube-container">
+    <div *ngFor="let side of cube.sides" class="cube-side">
+        <button *ngFor="let square of side.squares" (click)="onSelectSquare(square)" class="cube-square">{{square.value}}</button>
+    </div>
+</div>
