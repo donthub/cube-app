@@ -4,6 +4,7 @@ export interface Cube {
 }
 
 export interface Side {
+    index: number;
     squares: Square[]
 }
 
@@ -22,6 +23,7 @@ export class CubeFactory {
         let index = 0;
         for (let i = 0; i < 6; i++) {
             let side: Side = {
+                index: i + 1,
                 squares: []
             };
 

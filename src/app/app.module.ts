@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CubeComponent } from './cube/cube.component';
+import { StringboxComponent } from './stringbox/stringbox.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CubeComponent
+    CubeComponent,
+    StringboxComponent
   ],
   imports: [
     BrowserModule

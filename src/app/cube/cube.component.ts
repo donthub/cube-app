@@ -16,7 +16,7 @@ export class CubeComponent implements OnInit {
   }
 
   onSelectSquare(square: Square): void {
-    square.value++
+    square.value = square.value % 6 + 1;
   }
 
 }
