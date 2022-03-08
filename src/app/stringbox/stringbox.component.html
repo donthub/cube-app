@@ -1,3 +1,4 @@
 <div class="stringbox-container">
-    <textarea class="stringbox-area" placeholder="Cube stringified"></textarea>
+    <textarea class="stringbox-area" placeholder="Cube stringified" (input)="onStringboxChange($event)" [value]="cube | cubeStringify"></textarea>
+    <div *ngIf="invalid" class="stringbox-invalid">String is invalid! ({{ invalidSize }})</div>
 </div>

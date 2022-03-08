@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Cube, CubeFactory, Square } from '../cube'
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Cube, CubeFactory, Square } from '../model/cube'
 
 @Component({
   selector: 'app-cube',
@@ -8,7 +8,9 @@ import { Cube, CubeFactory, Square } from '../cube'
 })
 export class CubeComponent implements OnInit {
 
-  cube: Cube = new CubeFactory().create();
+  @Input() cube!: Cube;
+  @Output() cubeChange: EventEmitter<Cube> = new EventEmitter<Cube>();
+  cubeFactory: CubeFactory = new CubeFactory();
 
   constructor() { }
 
@@ -17,6 +19,8 @@ export class CubeComponent implements OnInit {
 
   onSelectSquare(square: Square): void {
     square.value = square.value % 6 + 1;
+    this.cube = this.cubeFactory.copy(this.cube);
+    this.cubeChange.emit(this.cube);
   }
 
 }
